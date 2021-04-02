@@ -1,6 +1,6 @@
 from tkinter import *
 
-sss
+
 def second_window_open():
     def third_window_open():
         def fourth_window_open():
