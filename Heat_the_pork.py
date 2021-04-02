@@ -6,6 +6,47 @@ def second_window_open():
         def fourth_window_open():
             def fifth_window_open():
                 def sixth_window_open():
+                    def seventh_window1_open():
+                        def print_inventory():
+                            a = list(inventory.get())
+                            print(a)
+                        seventh_window1 = Tk()
+                        seventh_window1.geometry("600x680+700+300")
+                        seventh_window1['bg'] = '#C4C4C4'
+                        seventh_window1.title(" ")
+                        window_label_7 = Label(seventh_window1,
+                                               bg='#C4C4C4',
+                                               text="**Это стол. "
+                                                    "На нем лежат: "
+                                                    "\n\nговяжья нога, луковица, старый"
+                                                    "\nщербатый меч, кружка пива, "
+                                                    "\nполуголый карлик, "
+                                                    "\nсвинина, квашеная \nкапуста, низ собаки"
+                                                    "\n\nЧто из этих вещей ты возьмешь в "
+                                                    "\nсвой инвентарь? "
+                                                    "\n\nВпиши их через запятую", font=("Arial Bold", 20), justify=LEFT,
+                                               padx='60')
+                        window_label_7.grid(column=0, row=0,
+                                            pady="85")
+                        inventory = StringVar()
+                        entry_seventh_win = Entry(seventh_window1, width=60,
+                                                textvariable=inventory)
+                        entry_seventh_win.place (x='60', y='550')
+                        button_yes = Button(seventh_window1, text="ДА",
+                                            width="12", height="1", font=("Arial Bold", 18), command=print_inventory)
+                        button_yes.place(x='65', y='630')
+                        button_no = Button(seventh_window1, text="НЕТ",
+                                           width="12", height="1", font=("Arial Bold", 18))
+                        button_no.place(x='310', y='630')
+
+                        seventh_window1.mainloop()
+
+
+
+                    def sixth_win_push_yes():
+                        sixth_window.destroy()
+                        seventh_window1_open()
+
                     sixth_window = Tk()
                     sixth_window.geometry("500x467+700+300")
                     sixth_window['bg'] = '#C4C4C4'
@@ -13,15 +54,14 @@ def second_window_open():
                     window_label_6 = Label(sixth_window,
                                            bg='#C4C4C4',
                                            text="**Впереди ты видишь стол с" "\nедой, но не можешь"
-                                                "\nрассмотреть,что именно за"
-                                                "\nеда на нем "
-                                                "\n\nПодойти поближе?",
-                    font = ("Arial Bold",
-                            20), justify = LEFT, padx = '60')
+                                           "\nрассмотреть,что именно за"
+                                           "\nеда на нем "
+                                           "\n\nПодойти поближе?",font = ("Arial Bold", 20), justify = LEFT,
+                                           padx = '60')
                     window_label_6.grid(column=0, row=0,
                                         pady="85")
                     button_yes = Button(sixth_window, text="ДА",
-                                        width="12", height="1", font=("Arial Bold", 18))
+                                        width="12", height="1", font=("Arial Bold", 18), command=sixth_win_push_yes)
                     button_yes.place(x='65', y='360')
                     button_no = Button(sixth_window, text="НЕТ",
                                        width="12", height="1", font=("Arial Bold", 18))
@@ -71,9 +111,6 @@ def second_window_open():
             button_ok_fourth_win.place(x='150', y='370')
             fourth_window.mainloop()
 
-            def fourth_button_clicked():
-                fourth_window.destroy()
-                fifth_window_open()
 
         def third_window_clicked():
             third_window.destroy()
