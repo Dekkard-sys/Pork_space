@@ -8,8 +8,17 @@ def second_window_open():
                 def sixth_window_open():
                     def seventh_window1_open():
                         def print_inventory():
-                            a = list(inventory.get())
-                            print(a)
+
+                            print(inventory_list)
+                            print(test)
+                        def test():
+                            inventory_list = list(inventory.get())
+                            for x in inventory_list:
+                                if x == ",":
+                                    new_word = inventory_list[int(inventory_list.index(x)):0]
+                                    print(new_word)
+
+
                         seventh_window1 = Tk()
                         seventh_window1.geometry("600x680+700+300")
                         seventh_window1['bg'] = '#C4C4C4'
@@ -33,7 +42,7 @@ def second_window_open():
                                                 textvariable=inventory)
                         entry_seventh_win.place (x='60', y='550')
                         button_yes = Button(seventh_window1, text="ДА",
-                                            width="12", height="1", font=("Arial Bold", 18), command=print_inventory)
+                                            width="12", height="1", font=("Arial Bold", 18), command=test)
                         button_yes.place(x='65', y='630')
                         button_no = Button(seventh_window1, text="НЕТ",
                                            width="12", height="1", font=("Arial Bold", 18))
