@@ -7,16 +7,12 @@ def second_window_open():
             def fifth_window_open():
                 def sixth_window_open():
                     def seventh_window1_open():
-                        def print_inventory():
-
+                        def form_inventory():
+                            inventory_str = inventory_raw.get()
+                            inventory_str = inventory_str.lower()
+                            items_list = inventory_str.split(',')
+                            inventory_list = [x.strip(' ') for x in items_list]
                             print(inventory_list)
-                            print(test)
-                        def test():
-                            inventory_list = list(inventory.get())
-                            for x in inventory_list:
-                                if x == ",":
-                                    new_word = inventory_list[int(inventory_list.index(x)):0]
-                                    print(new_word)
 
 
                         seventh_window1 = Tk()
@@ -37,12 +33,11 @@ def second_window_open():
                                                padx='60')
                         window_label_7.grid(column=0, row=0,
                                             pady="85")
-                        inventory = StringVar()
-                        entry_seventh_win = Entry(seventh_window1, width=60,
-                                                textvariable=inventory)
+                        inventory_raw = StringVar()
+                        entry_seventh_win = Entry(seventh_window1, width=60, textvariable=inventory_raw)
                         entry_seventh_win.place (x='60', y='550')
                         button_yes = Button(seventh_window1, text="ДА",
-                                            width="12", height="1", font=("Arial Bold", 18), command=test)
+                                            width="12", height="1", font=("Arial Bold", 18), command=form_inventory)
                         button_yes.place(x='65', y='630')
                         button_no = Button(seventh_window1, text="НЕТ",
                                            width="12", height="1", font=("Arial Bold", 18))
@@ -65,8 +60,8 @@ def second_window_open():
                                            text="**Впереди ты видишь стол с" "\nедой, но не можешь"
                                            "\nрассмотреть,что именно за"
                                            "\nеда на нем "
-                                           "\n\nПодойти поближе?",font = ("Arial Bold", 20), justify = LEFT,
-                                           padx = '60')
+                                           "\n\nПодойти поближе?",font = ("Arial Bold", 20), justify=LEFT,
+                                           padx='60')
                     window_label_6.grid(column=0, row=0,
                                         pady="85")
                     button_yes = Button(sixth_window, text="ДА",
