@@ -14,7 +14,6 @@ def second_window_open():
                             inventory_list = [x.strip(' ') for x in items_list]
                             print(inventory_list)
 
-
                         seventh_window1 = Tk()
                         seventh_window1.geometry("600x680+700+300")
                         seventh_window1['bg'] = '#C4C4C4'
@@ -40,13 +39,36 @@ def second_window_open():
                                             width="12", height="1", font=("Arial Bold", 18), command=form_inventory)
                         button_yes.place(x='65', y='630')
                         button_no = Button(seventh_window1, text="НЕТ",
-                                           width="12", height="1", font=("Arial Bold", 18))
+                                           width="12", height="1", font=("Arial Bold", 18), command=death_from_hunger)
                         button_no.place(x='310', y='630')
 
                         seventh_window1.mainloop()
 
 
+                    def seventh_window2_open():
+                        seventh_window2 = Tk()
+                        seventh_window2.geometry("600x680+700+300")
+                        seventh_window2['bg'] = '#C4C4C4'
+                        seventh_window2.title(" ")
+                        window_label_8 = Label(seventh_window2,
+                                               bg='#C4C4C4',
+                                               text="\n**Ты умер от голода в \nжутких мучениях"
+                                                    "\n\nВсе твои усилия были \nнапрасны"
+                                                    "\n\nСпасибо за игккк",
+                                               font=("Arial Bold", 20), justify=LEFT, padx='60')
+                        window_label_8.grid(column=0, row=0,
+                                            pady="85")
+                        inventory_raw = StringVar()
+                        entry_seventh_win = Entry(seventh_window2, width=60, textvariable=inventory_raw)
+                        entry_seventh_win.place(x='60', y='550')
+                        button_yes = Button(seventh_window2, text="ДА",
+                                            width="12", height="1", font=("Arial Bold", 18),)
+                        button_yes.place(x='65', y='630')
+                        button_no = Button(seventh_window2, text="НЕТ",
+                                           width="12", height="1", font=("Arial Bold", 18),)
+                        button_no.place(x='310', y='630')
 
+                        seventh_window2.mainloop()
                     def sixth_win_push_yes():
                         sixth_window.destroy()
                         seventh_window1_open()
