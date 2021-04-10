@@ -7,11 +7,39 @@ def second_window_open():
             def fifth_window_open():
                 def sixth_window_open():
                     def seventh_window1_open():
+                        def eight_window_open():
+                            eight_window = Tk()
+                            eight_window.geometry("800x680+700+300")
+                            eight_window['bg'] = '#C4C4C4'
+                            eight_window.title(" ")
+                            inventory_str = inventory_raw.get()
+                            inventory_str = inventory_str.lower()
+                            window_label_8 = Label(eight_window,
+                                                   bg='#C4C4C4',
+                                                   text="**Теперь в ствоем инвентаре:\n" + inventory_str + "\n" +
+                                                        "\n\n\nЕда холодная и ее надо разогреть,"
+                                                        "\nиначе ты рискуешь есть холодную еду."
+                                                        "\n\nЭто испытание к которому ты сейчас не готов.",
+                                                   font=("Arial Bold", 20),
+                                                   justify=LEFT,
+                                                   padx='60')
+                            window_label_8.grid(column=0, row=0,
+                                                pady="85")
+                            button_ok = Button(eight_window, text="OK",
+                                                width="12", height="1", font=("Arial Bold", 18))
+                            button_ok.place(x='65', y='630')
+                            eight_window.mainloop()
+
+                        def seventh_window1_push_yes():
+                            seventh_window1.destroy()
+                            eight_window_open()
+
                         def form_inventory():
                             inventory_str = inventory_raw.get()
                             inventory_str = inventory_str.lower()
                             items_list = inventory_str.split(',')
                             inventory_list = [x.strip(' ') for x in items_list]
+                            seventh_window1_push_yes()
                             print(inventory_list)
 
                         seventh_window1 = Tk()
