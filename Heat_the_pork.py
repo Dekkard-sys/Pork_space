@@ -38,14 +38,14 @@ def second_window_open():
                         button_yes = Button(seventh_window1, text="ДА",
                                             width="12", height="1", font=("Arial Bold", 18), command=form_inventory)
                         button_yes.place(x='65', y='630')
-                        button_no = Button(seventh_window1, text="НЕТ",
-                                           width="12", height="1", font=("Arial Bold", 18), command=death_from_hunger)
-                        button_no.place(x='310', y='630')
-
                         seventh_window1.mainloop()
 
 
                     def seventh_window2_open():
+                        def seventh_win2_push_no():
+                            seventh_window2.destroy()
+                            sixth_window_open()
+
                         seventh_window2 = Tk()
                         seventh_window2.geometry("600x680+700+300")
                         seventh_window2['bg'] = '#C4C4C4'
@@ -58,20 +58,22 @@ def second_window_open():
                                                font=("Arial Bold", 20), justify=LEFT, padx='60')
                         window_label_8.grid(column=0, row=0,
                                             pady="85")
-                        inventory_raw = StringVar()
-                        entry_seventh_win = Entry(seventh_window2, width=60, textvariable=inventory_raw)
-                        entry_seventh_win.place(x='60', y='550')
-                        button_yes = Button(seventh_window2, text="ДА",
-                                            width="12", height="1", font=("Arial Bold", 18),)
-                        button_yes.place(x='65', y='630')
                         button_no = Button(seventh_window2, text="НЕТ",
-                                           width="12", height="1", font=("Arial Bold", 18),)
+                                           width="12", height="1", font=("Arial Bold", 18),command=seventh_win2_push_no)
                         button_no.place(x='310', y='630')
 
                         seventh_window2.mainloop()
+
+
                     def sixth_win_push_yes():
                         sixth_window.destroy()
                         seventh_window1_open()
+
+
+                    def sixth_win_push_no():
+                        sixth_window.destroy()
+                        seventh_window2_open()
+
 
                     sixth_window = Tk()
                     sixth_window.geometry("500x467+700+300")
@@ -90,7 +92,7 @@ def second_window_open():
                                         width="12", height="1", font=("Arial Bold", 18), command=sixth_win_push_yes)
                     button_yes.place(x='65', y='360')
                     button_no = Button(sixth_window, text="НЕТ",
-                                       width="12", height="1", font=("Arial Bold", 18))
+                                       width="12", height="1", font=("Arial Bold", 18), command=sixth_win_push_no)
                     button_no.place(x='310', y='360')
                     sixth_window.mainloop()
 
