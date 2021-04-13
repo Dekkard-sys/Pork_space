@@ -8,15 +8,48 @@ def second_window_open():
                 def sixth_window_open():
                     def seventh_window1_open():
                         def eight_window_open():
+                            def next_line_func(list):
+                                for i in range(len(list)):
+                                    sum = 0
+                                    for x in list:
+                                        sum += len(x)
+                                        i += 1
+                                        if sum > 30:
+                                            list[i-1] = x + '\n'
+                                            print(list)
+                                            return item_list_to_str()
+
+
+
+
+
+
+                            def item_list_to_str():
+                                item_list_str = ''
+                                for x in item_list:
+                                    item_list_str += x + ', '
+
+                                return item_list_str
+
+
+
                             eight_window = Tk()
                             eight_window.geometry("800x680+700+300")
                             eight_window['bg'] = '#C4C4C4'
                             eight_window.title(" ")
                             inventory_str = inventory_raw.get()
                             inventory_str = inventory_str.lower()
+                            item_list = inventory_str.split(',')
+                            item_list = [x.strip(' ') for x in item_list]
+
+
+                                        # придумать как в середину строки  вписать "\n", если она больше 50ти символов
+
+
+
                             window_label_8 = Label(eight_window,
                                                    bg='#C4C4C4',
-                                                   text="**Теперь в ствоем инвентаре:\n" + inventory_str + "\n" +
+                                                   text="**Теперь в твоем инвентаре:\n" + next_line_func(item_list) +
                                                         "\n\n\nЕда холодная и ее надо разогреть,"
                                                         "\nиначе ты рискуешь есть холодную еду."
                                                         "\n\nЭто испытание к которому ты сейчас не готов.",
@@ -34,13 +67,6 @@ def second_window_open():
                             seventh_window1.destroy()
                             eight_window_open()
 
-                        def form_inventory():
-                            inventory_str = inventory_raw.get()
-                            inventory_str = inventory_str.lower()
-                            items_list = inventory_str.split(',')
-                            inventory_list = [x.strip(' ') for x in items_list]
-                            seventh_window1_push_yes()
-                            print(inventory_list)
 
                         seventh_window1 = Tk()
                         seventh_window1.geometry("600x680+700+300")
@@ -64,7 +90,8 @@ def second_window_open():
                         entry_seventh_win = Entry(seventh_window1, width=60, textvariable=inventory_raw)
                         entry_seventh_win.place (x='60', y='550')
                         button_yes = Button(seventh_window1, text="ДА",
-                                            width="12", height="1", font=("Arial Bold", 18), command=form_inventory)
+                                            width="12", height="1", font=("Arial Bold", 18),
+                                            command=seventh_window1_push_yes)
                         button_yes.place(x='65', y='630')
                         seventh_window1.mainloop()
 
