@@ -8,24 +8,6 @@ def second_window_open():
                 def sixth_window_open():
                     def seventh_window1_open():
                         def eight_window_open():
-                            def next_line_func(list):
-                                sum = 0
-                                for i in range(len(list)):
-
-                                    for x in list:
-                                        while sum <= 30:
-                                            sum += len(x)
-                                            i += 1
-                                            item_list_length_check(sum, list, i, x)
-
-                            def item_list_length_check(sum, list, i, x):
-                                if sum > 30:
-                                    list[i] = x + '\n'
-                                    print(list)
-                                    return item_list_to_str()
-
-
-
 
                             def item_list_to_str():
                                 item_list_str = ''
@@ -42,12 +24,13 @@ def second_window_open():
                             inventory_str = inventory_str.lower()
                             item_list = inventory_str.split(',')
                             item_list = [x.strip(' ') for x in item_list]
+                            print(item_list)
 
                             # придумать как в середину строки  вписать "\n", если она больше 50ти символов
 
                             window_label_8 = Label(eight_window,
                                                    bg='#C4C4C4',
-                                                   text="**Теперь в твоем инвентаре:\n" + next_line_func(item_list) +
+                                                   text="**Теперь в твоем инвентаре:\n" + item_list_to_str() +
                                                         "\n\n\nЕда холодная и ее надо разогреть,"
                                                         "\nиначе ты рискуешь есть холодную еду."
                                                         "\n\nЭто испытание к которому ты сейчас не готов.",
