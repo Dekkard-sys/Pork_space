@@ -8,6 +8,67 @@ def second_window_open():
                 def sixth_window_open():
                     def seventh_window1_open():
                         def eight_window_open():
+                            def ninth_window_open():
+                                def tenth_win_a_open():
+                                    tenth_window_a = Tk()
+                                    tenth_window_a.geometry("500x467+700+300")
+                                    tenth_window_a['bg'] = '#C4C4C4'
+                                    tenth_window_a.title(" ")
+                                    window_label_10a = Label(tenth_window_a,
+                                                             bg='#C4C4C4',
+                                                             text="**Старая печь призывно "
+                                                                  "\nгудит и щелкает поленьями "
+                                                                  "\n\nЧто из твоего ивентаря ты "
+                                                                  "\nхотел бы разогреть на печи?"
+                                                                  "\n\n(если больше одной вещи - "
+                                                                  "\nнабери через запятую)"
+                                                                  "\n(чтобы узнать содержание "
+                                                                  "\nинвентаря - набери инв)", font=("Arial Bold", 20),
+                                                             justify=LEFT,
+                                                             padx='60')
+                                    window_label_10a.grid(column=0, row=0,
+                                                          pady="85")
+                                    entry_tenth_win = StringVar()
+                                    entry_tenth_win_label = Entry(tenth_window_a, width=90,
+                                                                  textvariable=entry_tenth_win)
+                                    entry_tenth_win_label.place(x='60', y='330')
+                                    button_yes = Button(tenth_window_a, text="",
+                                                        width="12", height="1", font=("Arial Bold", 18),
+                                                        command=sixth_win_push_yes)
+                                    button_yes.place(x='65', y='360')
+                                    button_no = Button(tenth_window_a, text="",
+                                                       width="12", height="1", font=("Arial Bold", 18),
+                                                       command=sixth_win_push_no)
+                                    button_no.place(x='310', y='360')
+                                    tenth_window_a.mainloop()
+
+                                def ninth_win_push_yes():
+                                    ninth_window.destroy()
+                                    tenth_win_a_open()
+
+                                ninth_window = Tk()
+                                ninth_window.geometry("500x467+700+300")
+                                ninth_window['bg'] = '#C4C4C4'
+                                ninth_window.title(" ")
+                                window_label_9 = Label(ninth_window,
+                                                       bg='#C4C4C4',
+                                                       text="**Чуть поодаль в углу ты "
+                                                            "\nвидишь уютную печь, на "
+                                                            "\nкоторой можно разогреть "
+                                                            "\nеду из своего инвентаря", font=("Arial Bold", 20),
+                                                       justify=LEFT,
+                                                       padx='60')
+                                window_label_9.grid(column=0, row=0,
+                                                    pady="85")
+                                button_yes = Button(ninth_window, text="Подойти к печи",
+                                                    width="12", height="1", font=("Arial Bold", 18),
+                                                    command=ninth_win_push_yes)
+                                button_yes.place(x='65', y='360')
+                                button_no = Button(ninth_window, text="Не подходить к печи",
+                                                   width="12", height="1", font=("Arial Bold", 18),
+                                                   command=sixth_win_push_no)
+                                button_no.place(x='310', y='360')
+                                ninth_window.mainloop()
 
                             def item_list_to_str():
                                 item_list_str = ''
@@ -15,6 +76,10 @@ def second_window_open():
                                     item_list_str += x + ', '
 
                                 return item_list_str
+
+                            def eighth_window_push_yes():
+                                eight_window.destroy()
+                                ninth_window_open()
 
                             eight_window = Tk()
                             eight_window.geometry("800x680+700+300")
@@ -40,7 +105,8 @@ def second_window_open():
                             window_label_8.grid(column=0, row=0,
                                                 pady="85")
                             button_ok = Button(eight_window, text="OK",
-                                               width="12", height="1", font=("Arial Bold", 18))
+                                               width="12", height="1", font=("Arial Bold", 18),
+                                               command=eighth_window_push_yes)
                             button_ok.place(x='65', y='630')
                             eight_window.mainloop()
 
@@ -139,7 +205,6 @@ def second_window_open():
                 window_label_5 = Label(fifth_window, bg='#C4C4C4',
                                        text="Чтож, " + name.get()
                                             + "\n\nЯ могу предложить тееб\n"
-
                                               "отвеать нашей скромной кухни",
                                        font=("Arial Bold", 20),
                                        justify=LEFT, padx='60')
