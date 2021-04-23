@@ -10,37 +10,59 @@ def second_window_open():
                         def eight_window_open():
                             def ninth_window_open():
                                 def tenth_win_a_open():
+                                    def tenth_win_input_check():
+                                        entry_tenth_win = entry_tenth_win_raw.get()
+                                        if entry_tenth_win == "свинина":
+                                            window_label_output_10a['text'] = ''
+                                            window_label_10a['text'] = '\n\nВы греете свинину ' \
+                                                                       '\n\nВаши предки улыбаются ' \
+                                                                       '\nВам из Вечных Чертогов ' \
+                                                                       '\nВаш желудок полон, а душа поет ' \
+                                                                       '\nВы чувствуете себя победителем ' \
+                                                                       '\n\nПотому что вы и есть победитель' \
+                                                                       '\n\nПолуголый карлик ' \
+                                                                       'одобрительно кивает' \
+                                                                       '\n\n\nСпасибо за игру'
+
+                                        elif entry_tenth_win == "инв":
+                                            window_label_output_10a['text'] = "инвентарь: " + item_list_to_str()
+                                        elif entry_tenth_win != "инв":
+                                            if item_list.count(entry_tenth_win) == 1:
+                                                window_label_output_10a['text'] = ''
+                                                window_label_10a['text'] = '\n\nВы греете ' + entry_tenth_win + \
+                                                                                  '\nЭто ненадолго насыщает вас, ' \
+                                                                                  '\nно ваша душа остается холодна ' \
+                                                                                  '\nи печальна. ' \
+                                                                                  '\n\nСпасибо за игру'
+                                            elif item_list.count(entry_tenth_win) == 0:
+                                                window_label_output_10a['text'] = 'нет в инвентаре'
+
+
                                     tenth_window_a = Tk()
-                                    tenth_window_a.geometry("500x467+700+300")
+                                    tenth_window_a.geometry("560x690+700+300")
                                     tenth_window_a['bg'] = '#C4C4C4'
-                                    tenth_window_a.title(" ")
+                                    tenth_window_a.title("")
                                     window_label_10a = Label(tenth_window_a,
                                                              bg='#C4C4C4',
-                                                             text="**Старая печь призывно "
+                                                             text="\n\n**Старая печь призывно "
                                                                   "\nгудит и щелкает поленьями "
                                                                   "\n\nЧто из твоего ивентаря ты "
                                                                   "\nхотел бы разогреть на печи?"
-                                                                  "\n\n(если больше одной вещи - "
-                                                                  "\nнабери через запятую)"
-                                                                  "\n(чтобы узнать содержание "
-                                                                  "\nинвентаря - набери инв)", font=("Arial Bold", 20),
-                                                             justify=LEFT,
-                                                             padx='60')
-                                    window_label_10a.grid(column=0, row=0,
-                                                          pady="85")
-                                    entry_tenth_win = StringVar()
+                                                                  "\n\n(чтобы узнать содержание "
+                                                                  "\nинвентаря - набери инв без пробелов)**",
+                                                             font=("Arial Bold", 20), justify=LEFT, padx='60')
+                                    window_label_10a.grid(column=0, row=0)
+                                    entry_tenth_win_raw = StringVar()
                                     entry_tenth_win_label = Entry(tenth_window_a, width=90,
-                                                                  textvariable=entry_tenth_win)
-                                    entry_tenth_win_label.place(x='60', y='330')
-                                    button_yes = Button(tenth_window_a, text="",
-                                                        width="12", height="1", font=("Arial Bold", 18),
-                                                        command=sixth_win_push_yes)
-                                    button_yes.place(x='65', y='360')
-                                    button_no = Button(tenth_window_a, text="",
-                                                       width="12", height="1", font=("Arial Bold", 18),
-                                                       command=sixth_win_push_no)
-                                    button_no.place(x='310', y='360')
-                                    tenth_window_a.mainloop()
+                                                                  textvariable=entry_tenth_win_raw)
+                                    entry_tenth_win_label.place(x='60', y='570')
+                                    window_label_output_10a = Label(tenth_window_a, bg='#C4C4C4', text='',
+                                                                    font=("Arial Bold", 15), pady="10", justify=LEFT)
+                                    window_label_output_10a.grid(column=0, row=1)
+                                    button_enter = Button(tenth_window_a, text="ВВОД",
+                                                          width="12", height="1", font=("Arial Bold", 18),
+                                                          command=tenth_win_input_check)
+                                    button_enter.place(x='165', y='610')
 
                                 def ninth_win_push_yes():
                                     ninth_window.destroy()
@@ -55,7 +77,7 @@ def second_window_open():
                                                        text="**Чуть поодаль в углу ты "
                                                             "\nвидишь уютную печь, на "
                                                             "\nкоторой можно разогреть "
-                                                            "\nеду из своего инвентаря", font=("Arial Bold", 20),
+                                                            "\nеду из инвентаря**", font=("Arial Bold", 20),
                                                        justify=LEFT,
                                                        padx='60')
                                 window_label_9.grid(column=0, row=0,
@@ -74,8 +96,20 @@ def second_window_open():
                                 item_list_str = ''
                                 for x in item_list:
                                     item_list_str += x + ', '
-
+                                if len(item_list_str) > 50:
+                                    if len(item_list_str) % 2 == 0:
+                                        first_item_list_str = item_list_str[0:len(item_list_str)//2]
+                                        second_item_list_str = '\n' + item_list_str[len(item_list_str)//2:-1]
+                                        final_item_list_str = first_item_list_str + second_item_list_str
+                                        return final_item_list_str
+                                    if len(item_list_str) % 2 != 0:
+                                        item_list_str = item_list_str + ''
+                                        first_item_list_str = item_list_str[0:len(item_list_str) // 2]
+                                        second_item_list_str = '\n' + item_list_str[len(item_list_str) // 2:-1]
+                                        final_item_list_str = first_item_list_str + second_item_list_str
+                                        return final_item_list_str
                                 return item_list_str
+
 
                             def eighth_window_push_yes():
                                 eight_window.destroy()
