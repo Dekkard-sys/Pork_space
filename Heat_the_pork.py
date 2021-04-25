@@ -68,6 +68,8 @@ def second_window_open():
                                     ninth_window.destroy()
                                     tenth_win_a_open()
 
+                                def ninth_
+
                                 ninth_window = Tk()
                                 ninth_window.geometry("500x467+700+300")
                                 ninth_window['bg'] = '#C4C4C4'
@@ -88,7 +90,7 @@ def second_window_open():
                                 button_yes.place(x='65', y='360')
                                 button_no = Button(ninth_window, text="Не подходить к печи",
                                                    width="12", height="1", font=("Arial Bold", 18),
-                                                   command=sixth_win_push_no)
+                                                   command=ninth_window_push_no)
                                 button_no.place(x='310', y='360')
                                 ninth_window.mainloop()
 
