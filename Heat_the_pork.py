@@ -24,6 +24,11 @@ def second_window_open():
                                                                        'одобрительно кивает' \
                                                                        '\n\n\nСпасибо за игру'
 
+                                        elif entry_tenth_win == "":
+                                            window_label_output_10a['text'] = ''
+                                            window_label_10a['text'] = "\n\n\n\nВы ничего не греете " \
+                                                                       "\nи умираете от голода" \
+                                                                       "\n\nспасибо за игру"
                                         elif entry_tenth_win == "инв":
                                             window_label_output_10a['text'] = "инвентарь: " + item_list_to_str()
                                         elif entry_tenth_win != "инв":
@@ -63,10 +68,35 @@ def second_window_open():
                                                           width="12", height="1", font=("Arial Bold", 18),
                                                           command=tenth_win_input_check)
                                     button_enter.place(x='165', y='610')
+                                    tenth_window_a.mainloop()
+
+                                def tenth_win_b_open():
+                                    tenth_window_b = Tk()
+                                    tenth_window_b.geometry("560x690+700+300")
+                                    tenth_window_b['bg'] = '#C4C4C4'
+                                    tenth_window_b.title("")
+                                    window_label_10b = Label(tenth_window_b,
+                                                             bg='#C4C4C4',
+                                                             text="\n\n**Ты умер от голода в "
+                                                                  "\nжутких мучениях"
+                                                                  "\n\nВсе твои усилия были "
+                                                                  "\nнапрасны"
+                                                                  "\n\nСпасибо за игt**",
+                                                             font=("Arial Bold", 20), justify=LEFT, padx='60')
+                                    window_label_10b.grid(column=0, row=0)
+                                    button_enter = Button(tenth_window_b, text="НЕТ?",
+                                                          width="12", height="1", font=("Arial Bold", 18),
+                                                          )
+                                    button_enter.place(x='165', y='610')
+                                    tenth_window_b.mainloop()
 
                                 def ninth_win_push_yes():
                                     ninth_window.destroy()
                                     tenth_win_a_open()
+
+                                def ninth_win_push_no():
+                                    ninth_window.destroy()
+                                    tenth_win_b_open()
 
                                 ninth_window = Tk()
                                 ninth_window.geometry("500x467+700+300")
@@ -88,7 +118,7 @@ def second_window_open():
                                 button_yes.place(x='65', y='360')
                                 button_no = Button(ninth_window, text="Не подходить к печи",
                                                    width="12", height="1", font=("Arial Bold", 18),
-                                                   command=sixth_win_push_no)
+                                                   command=ninth_win_push_no)
                                 button_no.place(x='310', y='360')
                                 ninth_window.mainloop()
 
