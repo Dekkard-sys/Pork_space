@@ -1,6 +1,9 @@
 from tkinter import *
 
 
+def again():
+    tenth_window_a.destroy()
+    first_window_open()
 def second_window_open():
     def third_window_open():
         def fourth_window_open():
@@ -10,6 +13,8 @@ def second_window_open():
                         def eight_window_open():
                             def ninth_window_open():
                                 def tenth_win_a_open():
+
+
                                     def tenth_win_input_check():
                                         entry_tenth_win = entry_tenth_win_raw.get()
                                         if entry_tenth_win == "свинина":
@@ -29,19 +34,22 @@ def second_window_open():
                                             window_label_10a['text'] = "\n\n\n\nВы ничего не греете " \
                                                                        "\nи умираете от голода" \
                                                                        "\n\nспасибо за игру"
+                                            button_enter['width'] = 26
+                                            button_enter['text'] = 'Попробовать заново?'
+                                            button_enter['command'] = 'again'
+                                            button_enter.place(x='75', y='610')
                                         elif entry_tenth_win == "инв":
                                             window_label_output_10a['text'] = "инвентарь: " + item_list_to_str()
                                         elif entry_tenth_win != "инв":
                                             if item_list.count(entry_tenth_win) == 1:
                                                 window_label_output_10a['text'] = ''
                                                 window_label_10a['text'] = '\n\nВы греете ' + entry_tenth_win + \
-                                                                                  '\nЭто ненадолго насыщает вас, ' \
-                                                                                  '\nно ваша душа остается холодна ' \
-                                                                                  '\nи печальна. ' \
-                                                                                  '\n\nСпасибо за игру'
+                                                                           '\nЭто ненадолго насыщает вас, ' \
+                                                                           '\nно ваша душа остается холодна ' \
+                                                                           '\nи печальна. ' \
+                                                                           '\n\nСпасибо за игру'
                                             elif item_list.count(entry_tenth_win) == 0:
                                                 window_label_output_10a['text'] = 'нет в инвентаре'
-
 
                                     tenth_window_a = Tk()
                                     tenth_window_a.geometry("560x690+700+300")
@@ -71,6 +79,10 @@ def second_window_open():
                                     tenth_window_a.mainloop()
 
                                 def tenth_win_b_open():
+                                    def tenth_win_b_push_no():
+                                        tenth_window_b.destroy()
+                                        ninth_window_open()
+
                                     tenth_window_b = Tk()
                                     tenth_window_b.geometry("560x690+700+300")
                                     tenth_window_b['bg'] = '#C4C4C4'
@@ -86,7 +98,7 @@ def second_window_open():
                                     window_label_10b.grid(column=0, row=0)
                                     button_enter = Button(tenth_window_b, text="НЕТ?",
                                                           width="12", height="1", font=("Arial Bold", 18),
-                                                          )
+                                                          command=tenth_win_b_push_no)
                                     button_enter.place(x='165', y='610')
                                     tenth_window_b.mainloop()
 
@@ -128,8 +140,8 @@ def second_window_open():
                                     item_list_str += x + ', '
                                 if len(item_list_str) > 50:
                                     if len(item_list_str) % 2 == 0:
-                                        first_item_list_str = item_list_str[0:len(item_list_str)//2]
-                                        second_item_list_str = '\n' + item_list_str[len(item_list_str)//2:-1]
+                                        first_item_list_str = item_list_str[0:len(item_list_str) // 2]
+                                        second_item_list_str = '\n' + item_list_str[len(item_list_str) // 2:-1]
                                         final_item_list_str = first_item_list_str + second_item_list_str
                                         return final_item_list_str
                                     if len(item_list_str) % 2 != 0:
@@ -139,7 +151,6 @@ def second_window_open():
                                         final_item_list_str = first_item_list_str + second_item_list_str
                                         return final_item_list_str
                                 return item_list_str
-
 
                             def eighth_window_push_yes():
                                 eight_window.destroy()
@@ -347,28 +358,31 @@ def second_window_open():
     second_window.mainloop()
 
 
-def first_window_clicked():
-    first_window.destroy()
-    second_window_open()
+def first_window_open():
+    def first_window_clicked():
+        first_window.destroy()
+        second_window_open()
+
+    first_window = Tk()
+    first_window.geometry("545x410+700+300")
+    first_window['bg'] = '#C4C4C4'
+    button_yes = Button(first_window, text="ДА", width="12",
+                        height="1", font=("Arial Bold", 18),
+                        command=first_window_clicked)
+    button_yes.place(x='65', y='270')
+    button_no = Button(first_window, text="НЕТ", width="12",
+                       height="1", font=("Arial Bold", 18),
+                       command=first_window_clicked)
+    button_no.place(x='310', y='270')
+
+    first_window.title("Приветствую!")
+    window_label_1 = Label(first_window, bg='#C4C4C4',
+                           text="Приветствую пупник! \n" " \nВерно ты устал после долгой \nи опасной дороги?",
+                           font=("Arial Bold", 20), justify=LEFT,
+                           padx='60')
+    window_label_1.grid(column=0, row=0, pady="85")
+
+    first_window.mainloop()
 
 
-first_window = Tk()
-first_window.geometry("545x410+700+300")
-first_window['bg'] = '#C4C4C4'
-button_yes = Button(first_window, text="ДА", width="12",
-                    height="1", font=("Arial Bold", 18),
-                    command=first_window_clicked)
-button_yes.place(x='65', y='270')
-button_no = Button(first_window, text="НЕТ", width="12",
-                   height="1", font=("Arial Bold", 18),
-                   command=first_window_clicked)
-button_no.place(x='310', y='270')
-
-first_window.title("Приветствую!")
-window_label_1 = Label(first_window, bg='#C4C4C4',
-                       text="Приветствую пупник! \n" " \nВерно ты устал после долгой \nи опасной дороги?",
-                       font=("Arial Bold", 20), justify=LEFT,
-                       padx='60')
-window_label_1.grid(column=0, row=0, pady="85")
-
-first_window.mainloop()
+first_window_open()
