@@ -1,9 +1,7 @@
 from tkinter import *
 
 
-def again():
-    tenth_window_a.destroy()
-    first_window_open()
+
 def second_window_open():
     def third_window_open():
         def fourth_window_open():
@@ -13,6 +11,34 @@ def second_window_open():
                         def eight_window_open():
                             def ninth_window_open():
                                 def tenth_win_a_open():
+                                    def again():
+                                        tenth_window_a.destroy()
+                                        again_window_open()
+
+
+                                    def again_window_open():
+                                        def restart():
+                                            again.destroy()
+                                            first_window_open()
+
+                                        again = Tk()
+                                        again.geometry("560x690+700+300")
+                                        again['bg'] = '#C4C4C4'
+                                        again.title("")
+                                        window_label_again = Label(again,
+                                                                   bg='#C4C4C4',
+                                                                   text="\n\n\n\nВы ничего не греете " \
+                                                                        "\nи умираете от голода" \
+                                                                        "\n\nспасибо за игру",
+                                                                   font=("Arial Bold", 20), justify=LEFT, padx='60')
+                                        window_label_again.grid(column=0, row=0)
+                                        button_enter = Button(again, text="Попробовать заново?",
+                                                              width="26", height="1", font=("Arial Bold", 18),
+                                                              command=restart)
+                                        button_enter.place(x='165', y='610')
+                                        again.mainloop()
+
+
 
 
                                     def tenth_win_input_check():
@@ -30,14 +56,7 @@ def second_window_open():
                                                                        '\n\n\nСпасибо за игру'
 
                                         elif entry_tenth_win == "":
-                                            window_label_output_10a['text'] = ''
-                                            window_label_10a['text'] = "\n\n\n\nВы ничего не греете " \
-                                                                       "\nи умираете от голода" \
-                                                                       "\n\nспасибо за игру"
-                                            button_enter['width'] = 26
-                                            button_enter['text'] = 'Попробовать заново?'
-                                            button_enter['command'] = 'again'
-                                            button_enter.place(x='75', y='610')
+                                            again()
                                         elif entry_tenth_win == "инв":
                                             window_label_output_10a['text'] = "инвентарь: " + item_list_to_str()
                                         elif entry_tenth_win != "инв":
@@ -77,6 +96,7 @@ def second_window_open():
                                                           command=tenth_win_input_check)
                                     button_enter.place(x='165', y='610')
                                     tenth_window_a.mainloop()
+
 
                                 def tenth_win_b_open():
                                     def tenth_win_b_push_no():
