@@ -1,7 +1,6 @@
 from tkinter import *
 
 
-
 def second_window_open():
     def third_window_open():
         def fourth_window_open():
@@ -11,12 +10,62 @@ def second_window_open():
                         def eight_window_open():
                             def ninth_window_open():
                                 def tenth_win_a_open():
+                                    def tenth_win_input_check():
+                                        def again2_window_open():
+                                            def restart():
+                                                again.destroy()
+                                                first_window_open()
+
+                                            tenth_window_a.destroy()
+                                            again = Tk()
+                                            again.geometry("560x690+700+300")
+                                            again['bg'] = '#C4C4C4'
+                                            again.title("")
+                                            window_label_again = Label(again,
+                                                                       bg='#C4C4C4',
+                                                                       text='\n\nВы греете ' + entry_tenth_win + \
+                                                                            '\nЭто ненадолго насыщает вас, ' \
+                                                                            '\nно ваша душа остается холодна ' \
+                                                                            '\nи печальна. ' \
+                                                                            '\n\nСпасибо за игру',
+                                                                       font=("Arial Bold", 20), justify=LEFT, padx='60')
+                                            window_label_again.grid(column=0, row=0)
+                                            button_enter = Button(again, text="Попробовать заново?",
+                                                                  width="26", height="1", font=("Arial Bold", 18),
+                                                                  command=restart)
+                                            button_enter.place(x='165', y='610')
+                                            again.mainloop()
+
+                                        entry_tenth_win = entry_tenth_win_raw.get()
+                                        if entry_tenth_win == "свинина":
+                                            window_label_output_10a['text'] = ''
+                                            window_label_10a['text'] = '\n\nВы греете свинину ' \
+                                                                       '\n\nВаши предки улыбаются ' \
+                                                                       '\nВам из Вечных Чертогов ' \
+                                                                       '\nВаш желудок полон, а душа поет ' \
+                                                                       '\nВы чувствуете себя победителем ' \
+                                                                       '\n\nПотому что вы и есть победитель' \
+                                                                       '\n\nПолуголый карлик ' \
+                                                                       'одобрительно кивает' \
+                                                                       '\n\n\nСпасибо за игру'
+
+                                        elif entry_tenth_win == "":
+                                            again()
+                                        elif entry_tenth_win == "инв":
+                                            window_label_output_10a['text'] = "инвентарь: " + item_list_to_str()
+                                        elif entry_tenth_win != "инв":
+                                            if item_list.count(entry_tenth_win) == 1:
+                                                again2_window_open()
+                                            elif item_list.count(entry_tenth_win) == 0:
+                                                window_label_output_10a['text'] = 'нет в инвентаре'
+
                                     def again():
                                         tenth_window_a.destroy()
                                         again_window_open()
 
-
                                     def again_window_open():
+                                        tenth_window_a.destroy()
+
                                         def restart():
                                             again.destroy()
                                             first_window_open()
@@ -37,38 +86,6 @@ def second_window_open():
                                                               command=restart)
                                         button_enter.place(x='165', y='610')
                                         again.mainloop()
-
-
-
-
-                                    def tenth_win_input_check():
-                                        entry_tenth_win = entry_tenth_win_raw.get()
-                                        if entry_tenth_win == "свинина":
-                                            window_label_output_10a['text'] = ''
-                                            window_label_10a['text'] = '\n\nВы греете свинину ' \
-                                                                       '\n\nВаши предки улыбаются ' \
-                                                                       '\nВам из Вечных Чертогов ' \
-                                                                       '\nВаш желудок полон, а душа поет ' \
-                                                                       '\nВы чувствуете себя победителем ' \
-                                                                       '\n\nПотому что вы и есть победитель' \
-                                                                       '\n\nПолуголый карлик ' \
-                                                                       'одобрительно кивает' \
-                                                                       '\n\n\nСпасибо за игру'
-
-                                        elif entry_tenth_win == "":
-                                            again()
-                                        elif entry_tenth_win == "инв":
-                                            window_label_output_10a['text'] = "инвентарь: " + item_list_to_str()
-                                        elif entry_tenth_win != "инв":
-                                            if item_list.count(entry_tenth_win) == 1:
-                                                window_label_output_10a['text'] = ''
-                                                window_label_10a['text'] = '\n\nВы греете ' + entry_tenth_win + \
-                                                                           '\nЭто ненадолго насыщает вас, ' \
-                                                                           '\nно ваша душа остается холодна ' \
-                                                                           '\nи печальна. ' \
-                                                                           '\n\nСпасибо за игру'
-                                            elif item_list.count(entry_tenth_win) == 0:
-                                                window_label_output_10a['text'] = 'нет в инвентаре'
 
                                     tenth_window_a = Tk()
                                     tenth_window_a.geometry("560x690+700+300")
@@ -96,7 +113,6 @@ def second_window_open():
                                                           command=tenth_win_input_check)
                                     button_enter.place(x='165', y='610')
                                     tenth_window_a.mainloop()
-
 
                                 def tenth_win_b_open():
                                     def tenth_win_b_push_no():
@@ -184,6 +200,7 @@ def second_window_open():
                             inventory_str = inventory_str.lower()
                             item_list = inventory_str.split(',')
                             item_list = [x.strip(' ') for x in item_list]
+                            item_list = [x.strip('.') for x in item_list]
                             print(item_list)
 
                             # придумать как в середину строки  вписать "\n", если она больше 50ти символов
