@@ -1,5 +1,5 @@
 from tkinter import *
-
+from PIL import Image, ImageTk
 
 def second_window_open():
     def third_window_open():
@@ -23,11 +23,11 @@ def second_window_open():
                                             again.title("")
                                             window_label_again = Label(again,
                                                                        bg='#C4C4C4',
-                                                                       text='\n\nВы греете ' + entry_tenth_win + \
+                                                                       text='\n\n**Вы греете ' + entry_tenth_win + \
                                                                             '\nЭто ненадолго насыщает вас, ' \
                                                                             '\nно ваша душа остается холодна ' \
                                                                             '\nи печальна. ' \
-                                                                            '\n\nСпасибо за игру',
+                                                                            '\n\nСпасибо за игру**',
                                                                        font=("Arial Bold", 20), justify=LEFT, padx='60')
                                             window_label_again.grid(column=0, row=0)
                                             button_enter = Button(again, text="Попробовать заново?",
@@ -39,7 +39,7 @@ def second_window_open():
                                         entry_tenth_win = entry_tenth_win_raw.get()
                                         if entry_tenth_win == "свинина":
                                             window_label_output_10a['text'] = ''
-                                            window_label_10a['text'] = '\n\nВы греете свинину ' \
+                                            window_label_10a['text'] = '\n\n**Вы греете свинину ' \
                                                                        '\n\nВаши предки улыбаются ' \
                                                                        '\nВам из Вечных Чертогов ' \
                                                                        '\nВаш желудок полон, а душа поет ' \
@@ -47,7 +47,7 @@ def second_window_open():
                                                                        '\n\nПотому что вы и есть победитель' \
                                                                        '\n\nПолуголый карлик ' \
                                                                        'одобрительно кивает' \
-                                                                       '\n\n\nСпасибо за игру'
+                                                                       '\n\n\nСпасибо за игру**'
 
                                         elif entry_tenth_win == "":
                                             again()
@@ -64,7 +64,6 @@ def second_window_open():
                                         again_window_open()
 
                                     def again_window_open():
-                                        tenth_window_a.destroy()
 
                                         def restart():
                                             again.destroy()
@@ -76,9 +75,9 @@ def second_window_open():
                                         again.title("")
                                         window_label_again = Label(again,
                                                                    bg='#C4C4C4',
-                                                                   text="\n\n\n\nВы ничего не греете " \
+                                                                   text="\n\n\n\n**Вы ничего не греете " \
                                                                         "\nи умираете от голода" \
-                                                                        "\n\nспасибо за игру",
+                                                                        "\n\nспасибо за игру**",
                                                                    font=("Arial Bold", 20), justify=LEFT, padx='60')
                                         window_label_again.grid(column=0, row=0)
                                         button_enter = Button(again, text="Попробовать заново?",
@@ -88,14 +87,14 @@ def second_window_open():
                                         again.mainloop()
 
                                     tenth_window_a = Tk()
-                                    tenth_window_a.geometry("560x690+700+300")
+                                    tenth_window_a.geometry("630x690+700+300")
                                     tenth_window_a['bg'] = '#C4C4C4'
                                     tenth_window_a.title("")
                                     window_label_10a = Label(tenth_window_a,
                                                              bg='#C4C4C4',
                                                              text="\n\n**Старая печь призывно "
                                                                   "\nгудит и щелкает поленьями "
-                                                                  "\n\nЧто из твоего ивентаря ты "
+                                                                  "\n\nКакую вещь из твоего ивентаря ты "
                                                                   "\nхотел бы разогреть на печи?"
                                                                   "\n\n(чтобы узнать содержание "
                                                                   "\nинвентаря - набери инв без пробелов)**",
@@ -111,7 +110,7 @@ def second_window_open():
                                     button_enter = Button(tenth_window_a, text="ВВОД",
                                                           width="12", height="1", font=("Arial Bold", 18),
                                                           command=tenth_win_input_check)
-                                    button_enter.place(x='165', y='610')
+                                    button_enter.place(x='220', y='610')
                                     tenth_window_a.mainloop()
 
                                 def tenth_win_b_open():
@@ -147,7 +146,7 @@ def second_window_open():
                                     tenth_win_b_open()
 
                                 ninth_window = Tk()
-                                ninth_window.geometry("500x467+700+300")
+                                ninth_window.geometry("600x467+700+300")
                                 ninth_window['bg'] = '#C4C4C4'
                                 ninth_window.title(" ")
                                 window_label_9 = Label(ninth_window,
@@ -157,7 +156,7 @@ def second_window_open():
                                                             "\nкоторой можно разогреть "
                                                             "\nеду из инвентаря**", font=("Arial Bold", 20),
                                                        justify=LEFT,
-                                                       padx='60')
+                                                       padx='130')
                                 window_label_9.grid(column=0, row=0,
                                                     pady="85")
                                 button_yes = Button(ninth_window, text="Подойти к печи",
@@ -165,7 +164,7 @@ def second_window_open():
                                                     command=ninth_win_push_yes)
                                 button_yes.place(x='65', y='360')
                                 button_no = Button(ninth_window, text="Не подходить к печи",
-                                                   width="12", height="1", font=("Arial Bold", 18),
+                                                   width="20", height="1", font=("Arial Bold", 18),
                                                    command=ninth_win_push_no)
                                 button_no.place(x='310', y='360')
                                 ninth_window.mainloop()
@@ -193,7 +192,7 @@ def second_window_open():
                                 ninth_window_open()
 
                             eight_window = Tk()
-                            eight_window.geometry("800x680+700+300")
+                            eight_window.geometry("700x480+700+300")
                             eight_window['bg'] = '#C4C4C4'
                             eight_window.title(" ")
                             inventory_str = inventory_raw.get()
@@ -210,7 +209,7 @@ def second_window_open():
                                                    text="**Теперь в твоем инвентаре:\n" + item_list_to_str() +
                                                         "\n\n\nЕда холодная и ее надо разогреть,"
                                                         "\nиначе ты рискуешь есть холодную еду."
-                                                        "\n\nЭто испытание к которому ты сейчас не готов.",
+                                                        "\n\nЭто испытание к которому ты сейчас не готов.**",
                                                    font=("Arial Bold", 20),
                                                    justify=LEFT,
                                                    padx='60')
@@ -219,7 +218,7 @@ def second_window_open():
                             button_ok = Button(eight_window, text="OK",
                                                width="12", height="1", font=("Arial Bold", 18),
                                                command=eighth_window_push_yes)
-                            button_ok.place(x='65', y='630')
+                            button_ok.place(x='220', y='400')
                             eight_window.mainloop()
 
                         def seventh_window1_push_yes():
@@ -240,17 +239,18 @@ def second_window_open():
                                                     "\nсвинина, квашеная \nкапуста, низ собаки"
                                                     "\n\nЧто из этих вещей ты возьмешь в "
                                                     "\nсвой инвентарь? "
-                                                    "\n\nВпиши их через запятую", font=("Arial Bold", 20), justify=LEFT,
+                                                    "\n\nВпиши их через запятую**", font=("Arial Bold", 20),
+                                               justify=LEFT,
                                                padx='60')
                         window_label_7.grid(column=0, row=0,
                                             pady="85")
                         inventory_raw = StringVar()
-                        entry_seventh_win = Entry(seventh_window1, width=60, textvariable=inventory_raw)
+                        entry_seventh_win = Entry(seventh_window1, width=80, textvariable=inventory_raw)
                         entry_seventh_win.place(x='60', y='550')
                         button_yes = Button(seventh_window1, text="ДА",
                                             width="12", height="1", font=("Arial Bold", 18),
                                             command=seventh_window1_push_yes)
-                        button_yes.place(x='65', y='630')
+                        button_yes.place(x='195', y='630')
                         seventh_window1.mainloop()
 
                     def seventh_window2_open():
@@ -259,21 +259,21 @@ def second_window_open():
                             sixth_window_open()
 
                         seventh_window2 = Tk()
-                        seventh_window2.geometry("600x680+700+300")
+                        seventh_window2.geometry("500x467+700+300")
                         seventh_window2['bg'] = '#C4C4C4'
                         seventh_window2.title(" ")
                         window_label_8 = Label(seventh_window2,
                                                bg='#C4C4C4',
                                                text="\n**Ты умер от голода в \nжутких мучениях"
                                                     "\n\nВсе твои усилия были \nнапрасны"
-                                                    "\n\nСпасибо за игккк",
+                                                    "\n\nСпасибо за игккк**",
                                                font=("Arial Bold", 20), justify=LEFT, padx='60')
                         window_label_8.grid(column=0, row=0,
-                                            pady="85")
+                                            pady="65")
                         button_no = Button(seventh_window2, text="НЕТ",
                                            width="12", height="1", font=("Arial Bold", 18),
                                            command=seventh_win2_push_no)
-                        button_no.place(x='310', y='630')
+                        button_no.place(x='150', y='370')
 
                         seventh_window2.mainloop()
 
@@ -294,7 +294,7 @@ def second_window_open():
                                            text="**Впереди ты видишь стол с" "\nедой, но не можешь"
                                                 "\nрассмотреть,что именно за"
                                                 "\nеда на нем "
-                                                "\n\nПодойти поближе?", font=("Arial Bold", 20), justify=LEFT,
+                                                "\n\nПодойти поближе?**", font=("Arial Bold", 20), justify=LEFT,
                                            padx='60')
                     window_label_6.grid(column=0, row=0,
                                         pady="85")
@@ -418,7 +418,11 @@ def first_window_open():
                            font=("Arial Bold", 20), justify=LEFT,
                            padx='60')
     window_label_1.grid(column=0, row=0, pady="85")
-
+    canvas = tkinter.Canvas(first_window, height=200, width=250)
+    image = Image.open("c:/Users/user/Desktop/Tavern.jpg")
+    photo = ImageTk.PhotoImage(image)
+    image = canvas.create_image(0, 0, anchor='nw', image=photo)
+    canvas.grid(row=2, column=1)
     first_window.mainloop()
 
 
