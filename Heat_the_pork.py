@@ -401,28 +401,29 @@ def first_window_open():
         second_window_open()
 
     first_window = Tk()
-    first_window.geometry("545x410+700+300")
-    first_window['bg'] = '#C4C4C4'
+    first_window.geometry("545x680+700+300")
+    first_window['bg'] = '#8d5e58'
     button_yes = Button(first_window, text="ДА", width="12",
-                        height="1", font=("Arial Bold", 18),
+                        height="1", font=("Arial Bold", 18),foreground='#FFAF06', background='#a64f02',
                         command=first_window_clicked)
-    button_yes.place(x='65', y='270')
+    button_yes.place(x='65', y='570')
     button_no = Button(first_window, text="НЕТ", width="12",
-                       height="1", font=("Arial Bold", 18),
+                       height="1", font=("Arial Bold", 18),foreground='#FFAF06', background='#a64f02',
                        command=first_window_clicked)
-    button_no.place(x='310', y='270')
+    button_no.place(x='310', y='570')
 
     first_window.title("Приветствую!")
-    window_label_1 = Label(first_window, bg='#C4C4C4',
+    window_label_1 = Label(first_window, bg='#8d5e58',
                            text="Приветствую пупник! \n" " \nВерно ты устал после долгой \nи опасной дороги?",
-                           font=("Arial Bold", 20), justify=LEFT,
+                           font=("Verdana", 20,), justify=LEFT, foreground='#FFAF06',
                            padx='60')
     window_label_1.grid(column=0, row=0, pady="85")
-    canvas = tkinter.Canvas(first_window, height=200, width=250)
+    canvas = Canvas(first_window, height=300, width=390)
     image = Image.open("c:/Users/user/Desktop/Tavern.jpg")
     photo = ImageTk.PhotoImage(image)
     image = canvas.create_image(0, 0, anchor='nw', image=photo)
-    canvas.grid(row=2, column=1)
+    canvas.grid(row=2, column=0)
+    canvas.place(x='70', y='240')
     first_window.mainloop()
 
 
