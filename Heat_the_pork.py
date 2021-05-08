@@ -11,6 +11,32 @@ def second_window_open():
                             def ninth_window_open():
                                 def tenth_win_a_open():
                                     def tenth_win_input_check():
+                                        def again3_window_open():
+                                            def restart():
+                                                again.destroy()
+                                                first_window_open()
+
+                                            tenth_window_a.destroy()
+                                            again = Tk()
+                                            again.geometry("560x690+700+300")
+                                            again['bg'] = '#C4C4C4'
+                                            again.title("")
+                                            window_label_again = Label(again,
+                                                                       bg='#C4C4C4',
+                                                                       text='\n\n**Вы греете говяжью ногу ' \
+                                                                            '\n\nВы не уверены, что в этих краях ' \
+                                                                            '\nразводят рогатый скот ' \
+                                                                            '\nОдноногий бродяга подозрительно'
+                                                                            '\nРазглядывает ногу в вашей руке ' \
+                                                                            '\n\nСпасибо за игру**',
+                                                                       font=("Arial Bold", 20), justify=LEFT, padx='60')
+                                            window_label_again.grid(column=0, row=0)
+                                            button_enter = Button(again, text="Попробовать заново?",
+                                                                  width="26", height="1", font=("Arial Bold", 18),
+                                                                  command=restart)
+                                            button_enter.place(x='165', y='610')
+                                            again.mainloop()
+
                                         def again2_window_open():
                                             def restart():
                                                 again.destroy()
@@ -55,7 +81,8 @@ def second_window_open():
                                             window_label_output_10a['text'] = "инвентарь: " + item_list_to_str()
                                         elif entry_tenth_win != "инв":
                                             if item_list.count(entry_tenth_win) == 1:
-                                                again2_window_open()
+                                                if entry_tenth_win == "говяжья нога":
+                                                    again3_window_open()
                                             elif item_list.count(entry_tenth_win) == 0:
                                                 window_label_output_10a['text'] = 'нет в инвентаре'
 
